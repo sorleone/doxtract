@@ -5,7 +5,7 @@ const { extname } = require('path');
 
 const extensionRegex = new RegExp('^(.docx|.xlsx|.pptx)$');
 const paragraphRegex = new RegExp('(<w:t>|<w:t xml:space="preserve">)[^]*?(?=<\/w:p>)', 'g');
-const textBlockRegex = new RegExp('(<w:t>|<w:t xml:space="preserve">)([^<]*)', 'g');
+const textBlockRegex = new RegExp('(<w:t>|<w:t xml:space="preserve">)([^<]+)', 'g');
 
 function getXMLData(path, xmlFilename) {
   return new Promise((resolve, reject) => {
