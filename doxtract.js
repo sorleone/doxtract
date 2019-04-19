@@ -3,9 +3,11 @@
 const AdmZip = require('adm-zip');
 const { extname } = require('path');
 
+const tab = '\t', cr = '\n\n', empty = '';
+const tabRegex = new RegExp('<w:tab/>', 'g');
+const tagRegex = new RegExp('(<\/|<)w:[^>]*>', 'g');
 const extensionRegex = new RegExp('^(.docx|.xlsx|.pptx)$');
 const paragraphRegex = new RegExp('(<w:t>|<w:t xml:space="preserve">)[^]*?(?=<\/w:p>)', 'g');
-const textBlockRegex = new RegExp('(<w:t>|<w:t xml:space="preserve">)([^<]+)', 'g');
 
 function getXMLData(path, xmlFilename) {
   return new Promise((resolve, reject) => {
@@ -32,12 +34,9 @@ function getXMLData(path, xmlFilename) {
  */
 module.exports.extractText = (path, xmlFilename = 'document') => {
   return getXMLData(path, xmlFilename).then((xml) => {
-    let paragraph, textBlock, text = '';
+    let paragraph, text = '';
     while (paragraph = paragraphRegex.exec(xml)) {
-      while (textBlock = textBlockRegex.exec(paragraph[0])) {
-        text += textBlock[2];
-      }
-      text += '\n\n';
+      text += paragraph[0].replace(tabRegex, tab).replace(tagRegex, empty) + cr;
     }
     return text;
   });

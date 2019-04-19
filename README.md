@@ -16,8 +16,9 @@ extractText('./file.docx').then(console.log).catch(console.error);
 ```
 
 <h2>Contribution</h2>
+
 <p>
-  Please report issues/bugs, feature requests and suggestions for improvements to the <a href="https://github.com/sorleone/doxtract/issues">issue tracker</a>.
+  Please send your proposed changes as a pull request <a href="https://github.com/sorleone/doxtract/pulls">here</a> thanks. If you can't find a solution report issues/bugs, feature requests and suggestions for improvements to the <a href="https://github.com/sorleone/doxtract/issues">issue tracker</a>.
 </p>
 
 <p align="center">
