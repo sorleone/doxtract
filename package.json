@@ -1,6 +1,6 @@
 {
   "name": "doxtract",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Very Fast Pure JS Text Extractor For Your Office Files",
   "main": "doxtract.js",
   "keywords": [
@@ -15,7 +15,7 @@
     "text"
   ],
   "author": "sorleone",
-  "license": "CC BY-NC-SA 4.0",
+  "license": "CC-BY-NC-SA-4.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sorleone/doxtract.git"
