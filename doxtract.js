@@ -11,7 +11,7 @@ const paragraphRegex = new RegExp('(<w:t>|<w:t xml:space="preserve">)[^]*?(?=<\/
 
 function getXMLData(path, xmlFilename) {
   return new Promise((resolve, reject) => {
-    if (!extensionRegex.test(extname(path))) {
+    if (!extensionRegex.test(extname(path).toLowerCase())) {
       reject(new Error('The file must be either a .docx, .xlsx or .pptx'));
     }
     try {
